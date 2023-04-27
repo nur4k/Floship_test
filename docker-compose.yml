@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  backend-1:
+    build:
+      context: ./Store/
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    networks:
+      - stack
+
+  backend-2:
+    build:
+      context: ./Warehouse/
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    networks:
+      - stack
+
+
+networks:
+  stack:
